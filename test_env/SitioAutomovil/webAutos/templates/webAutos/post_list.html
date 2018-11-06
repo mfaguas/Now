@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/webAutos.css' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <h1 class="hola">Hola Mundo</h1>
+    <hr>
+    {% for post in posts %}
+    <button onclick="myFunction('Demo3')" class="w3-btn w3-block w3-red"><h1>{{ post.titulo }}</h1></button>
+    <div  id="Demo3" class="w3-hide w3-container w3-center w3-pale-red"> 
+        <p>{{ post.Marca}}</p>
+        <p>{{ post.Modelo}}</p>
+        <p>{{ post.Año_automovil}}</p>
+        <p>{{ post.Color}}</p>
+        <p>{{ post.Numero_puertas}}</p>
+        <p>{{ post.Descripcion}}</p>
+        <p>Fecha de publicación: {{ post.Fecha_publicacion }}</p>
+        <p>{{ post.Precio|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+
+<script>
+    function myFunction(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else { 
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+    </script>
+
+
+</body>
+</html>
